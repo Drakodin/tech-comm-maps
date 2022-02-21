@@ -2,13 +2,14 @@ import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { LatLngTuple, Map as LeafletMap } from 'leaflet';
 // import host url using a workaround for env files
+import { HOST_URL } from '../config/config';
 // For now, the zip file URL is an empty .zip, signalling nothing to read
 
 import ShapeRenderer from './MapRenderer';
 
 const DashboardMap = () => {
     const mapRef = React.useRef<LeafletMap>();
-
+    const shapesRef = React.useRef<any>();
     React.useEffect(() => {
         if (mapRef.current) {
             const mapEl = mapRef.current;
@@ -31,7 +32,7 @@ const DashboardMap = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            <ShapeRenderer zipURL={`.zip`}/>
+            <ShapeRenderer zipURL={`${HOST_URL}/US_State_Boundaries.zip`}/>
         </MapContainer>
     )
 }
