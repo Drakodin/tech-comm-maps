@@ -33,8 +33,8 @@ STATE_DATA['years'].forEach((v: any) => {
 export const getScale = (start: [number, number, number], end: [number, number, number], input: number): string => {
     let range = max - min;
     let percent = (max - input) / range;
-    let red = (start[0] + end[0]) * percent;
-    let green = (start[1] + end[1]) * percent;
-    let blue = (start[2] + end[2]) * percent;
+    let red = start[0] + (end[0] - start[0]) * percent;
+    let green = start[1] + (end[1] - start[1]) * percent;
+    let blue = start[2] + (end[2] - start[2]) * percent;
     return `rgb(${red}, ${green}, ${blue})`;
 }

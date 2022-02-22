@@ -4,6 +4,7 @@ import { getScale } from '../data/dataLoader';
 import './options.css';
 
 const MapOptions = () => {
+    let autoHandler: any = undefined;
     const [year, setYear] = React.useState("");
     const years = Object.keys(STATE_DATA['years']);
     const [auto, setAuto] = React.useState(false);
@@ -16,12 +17,9 @@ const MapOptions = () => {
             let yearIdx = DATA_YEARS.indexOf(year);
             let states = Object.keys(STATE_DATA['years'][yearIdx]).slice(1);
             let state = states.find((v) => classes.contains(v));
-            if (state === 'OR') {
-                console.log(STATE_DATA['years'][yearIdx][state])
-            }
             
             if (state) {
-                node.style.fill = getScale([255, 255, 0], [200, 50, 128], STATE_DATA['years'][yearIdx][state]);
+                node.style.fill = getScale([255, 0, 0], [0, 0, 255], STATE_DATA['years'][yearIdx][state]);
             }
         })
     }, [year]);
@@ -36,14 +34,24 @@ const MapOptions = () => {
             if (newIdx < 0) {
                 newIdx += years.length;
             }
-            setYear(DATA_YEARS[(idx - 1) % years.length]);
+            setYear(DATA_YEARS[newIdx % years.length]);
         } else {
             setYear(DATA_YEARS[(idx + 1) % years.length]);
         }
     }
 
     const autoplay = () => {
-        setTimeout(() => shift('forward'), 1500);
+        if (!auto) {
+            console.log('Starting Interval...');
+            autoHandler = setInterval(() => {
+                console.log("tick");
+                shift('forward');
+            }, 1000);
+        } else {
+            clearInterval(autoHandler)
+            autoHandler = undefined;
+        }
+        setAuto(!auto);
     }
 
     const loadYear = () => {
@@ -63,6 +71,11 @@ const MapOptions = () => {
             </div>
             <div>
                 <button onClick={loadYear}>Load data</button>
+            </div>
+            <div>
+                <button onClick={autoplay}>
+                    <i className={(auto) ? "fa-solid fa-stop" : "fa-solid fa-play"}></i>
+                </button>
             </div>
         </div>
 
