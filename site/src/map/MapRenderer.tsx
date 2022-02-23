@@ -3,7 +3,6 @@ import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { Feature, FeatureCollection } from 'geojson';
 import shp from 'shpjs';
-import ReactDOMServer from 'react-dom/server';
 
 interface RenderProps {
     zipURL: string;

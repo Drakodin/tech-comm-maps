@@ -19,7 +19,7 @@ const MapOptions = () => {
             let state = states.find((v) => classes.contains(v));
             
             if (state) {
-                node.style.fill = getScale([255, 97, 158], [93, 154, 255], STATE_DATA['years'][yearIdx][state]);
+                node.style.fill = getScale([255, 97, 158], [34, 117, 255], STATE_DATA['years'][yearIdx][state]);
             }
         })
     }, [year]);
@@ -40,42 +40,21 @@ const MapOptions = () => {
         }
     }
 
-    const autoplay = () => {
-        if (!auto) {
-            console.log('Starting Interval...');
-            autoHandler = setInterval(() => {
-                console.log("tick");
-                shift('forward');
-            }, 1000);
-        } else {
-            clearInterval(autoHandler)
-            autoHandler = undefined;
-        }
-        setAuto(!auto);
-    }
-
     const loadYear = () => {
         setYear(`${STATE_DATA['years'][0]['year']}`)
     }
 
     return (
-        <div>
-            <div className="pagination map-control">
-                <button onClick={() => shift('back')}>
-                    <i className="fa-solid fa-arrow-left"></i>
-                </button>
-                <p>{year}</p>
-                <button onClick={() => shift('forward')}>
-                    <i className="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
+        <div className="map-control control-root">
+            <button id="map-left" className="pagination" onClick={() => shift('back')}>
+                <i className="fa-solid fa-arrow-left"></i>
+            </button>
+            <button id="map-right" className="pagination" onClick={() => shift('forward')}>
+                <i className="fa-solid fa-arrow-right"></i>
+            </button>
+            <p>{year}</p>
             <div>
                 <button onClick={loadYear}>Load data</button>
-            </div>
-            <div>
-                <button onClick={autoplay}>
-                    <i className={(auto) ? "fa-solid fa-stop" : "fa-solid fa-play"}></i>
-                </button>
             </div>
         </div>
 

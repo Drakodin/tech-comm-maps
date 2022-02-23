@@ -9,7 +9,6 @@ import ShapeRenderer from './MapRenderer';
 
 const DashboardMap = () => {
     const mapRef = React.useRef<LeafletMap>();
-    const shapesRef = React.useRef<any>();
     React.useEffect(() => {
         if (mapRef.current) {
             const mapEl = mapRef.current;
@@ -23,9 +22,12 @@ const DashboardMap = () => {
             center={position}
             zoom={4}
             style={{
-                width: '90%',
-                height: '60vh'
+                width: '80%',
+                height: '70vh',
+                position: 'relative',
+                zIndex: 0
             }}
+            zoomControl={false}
             whenCreated={(instance) => {mapRef.current = instance}}
         >
             <TileLayer
