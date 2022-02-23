@@ -19,7 +19,7 @@ const MapOptions = () => {
             let state = states.find((v) => classes.contains(v));
             
             if (state) {
-                node.style.fill = getScale([255, 0, 0], [0, 0, 255], STATE_DATA['years'][yearIdx][state]);
+                node.style.fill = getScale([255, 97, 158], [93, 154, 255], STATE_DATA['years'][yearIdx][state]);
             }
         })
     }, [year]);

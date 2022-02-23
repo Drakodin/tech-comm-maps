@@ -13,6 +13,11 @@ STATE_DATA['years'].forEach((v: any) => {
         if (key === 'year') {
             continue;
         }
+
+        if (key === 'DC') {
+            continue;
+        }
+        
         if (v[key] < min) {
             min = v[key];
         }
@@ -32,7 +37,7 @@ STATE_DATA['years'].forEach((v: any) => {
  */
 export const getScale = (start: [number, number, number], end: [number, number, number], input: number): string => {
     let range = max - min;
-    let percent = (max - input) / range;
+    let percent = (input - min) / range;
     let red = start[0] + (end[0] - start[0]) * percent;
     let green = start[1] + (end[1] - start[1]) * percent;
     let blue = start[2] + (end[2] - start[2]) * percent;
