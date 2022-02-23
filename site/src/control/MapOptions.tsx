@@ -4,10 +4,24 @@ import { getScale } from '../data/dataLoader';
 import './options.css';
 
 const MapOptions = () => {
-    let autoHandler: any = undefined;
     const [year, setYear] = React.useState("");
     const years = Object.keys(STATE_DATA['years']);
-    const [auto, setAuto] = React.useState(false);
+
+    React.useEffect(() => {
+        let callback = (mutations: any, observer: MutationObserver) => {
+            for (const mutation of mutations) {
+                if (mutation.type === 'childList') {
+                    loadYear()
+                }
+            }
+        }
+        let observer = new MutationObserver(callback);
+        const target = document.querySelector('.leaflet-overlay-pane');
+        const config = { attributes: true, childList: true, subtree: true }
+        if (target && year === "") {
+            observer.observe(target, config);
+        }
+    }, [])
 
     React.useEffect(() => {
         let nodes = document.querySelectorAll('.leaflet-interactive');
@@ -19,7 +33,7 @@ const MapOptions = () => {
             let state = states.find((v) => classes.contains(v));
             
             if (state) {
-                node.style.fill = getScale([255, 97, 158], [34, 117, 255], STATE_DATA['years'][yearIdx][state]);
+                node.style.fill = getScale([255, 255, 255], [34, 117, 255], STATE_DATA['years'][yearIdx][state]);
             }
         })
     }, [year]);
@@ -53,9 +67,6 @@ const MapOptions = () => {
                 <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>{year}</p>
-            <div>
-                <button onClick={loadYear}>Load data</button>
-            </div>
         </div>
 
     )

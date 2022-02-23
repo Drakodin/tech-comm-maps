@@ -34,6 +34,12 @@
     border-radius: none;
     z-index: 2;
     opacity: 0.5;
+    background-color: white;
+}
+
+.pagination:hover {
+    background-color: #eee;
+    cursor: pointer;
 }
 
 .leaflet-interactive {
