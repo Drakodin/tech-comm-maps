@@ -5,3 +5,9 @@
   align-items: center;
   width: 100%;
 }
+
+.title {
+  height: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}

@@ -3,7 +3,7 @@ import * as data from './lgbt_hist.json';
 export const STATE_DATA: any = data;
 
 // Array of years
-export const DATA_YEARS = ["2013", "2015"];
+export const DATA_YEARS = ["2013", "2015", "2018"];
 
 // Calculate scale using data
 let min = 100;

@@ -6,6 +6,10 @@ import DashboardMap from './map/Map';
 function App() {
   return (
     <div className="App">
+      <div>
+        {/* Sample Title */}
+        <h2 className="title">Lorem Ipsum</h2>
+      </div>
       <DashboardMap/>
       <MapOptions/>
     </div>

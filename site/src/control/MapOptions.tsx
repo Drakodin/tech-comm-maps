@@ -67,6 +67,12 @@ const MapOptions = () => {
                 <i className="fa-solid fa-arrow-right"></i>
             </button>
             <p>{year}</p>
+            <div className="scale">
+                <p>Less</p>
+                <div className="scale-linear gradient-scale">
+                </div>
+                <p>More</p>
+            </div>
         </div>
 
     )

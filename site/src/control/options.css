@@ -12,18 +12,18 @@
 
 #map-left {
     position: absolute;
-    top: 0;
+    top: calc(7.5% - 1px);
     left: 10%;
     width: 5%;
-    height: 70vh;
+    height: 60vh;
 }
 
 #map-right {
     position: absolute;
-    top: 0;
+    top: calc(7.5% - 1px);
     left: 85%;
     width: 5%;
-    height: 70vh;
+    height: 60vh;
 }
 
 .pagination {
@@ -46,4 +46,26 @@
     stroke: black;
     stroke-width: 2px;
     fill-opacity: 0.9;
+}
+
+.scale {
+    display: flex;
+    flex-direction: row;
+    width: max(40%, 150px);
+    justify-content: space-evenly;
+}
+
+.scale-linear {
+    width: max(40%, 150px);
+    height: 10px;
+}
+.map-control {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gradient-scale {
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(34, 117, 255));
 }

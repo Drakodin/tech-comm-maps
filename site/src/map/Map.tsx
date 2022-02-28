@@ -23,7 +23,7 @@ const DashboardMap = () => {
             zoom={4}
             style={{
                 width: '80%',
-                height: '70vh',
+                height: '60vh',
                 position: 'relative',
                 zIndex: 0
             }}
