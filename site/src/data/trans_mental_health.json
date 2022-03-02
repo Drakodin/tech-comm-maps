@@ -1,0 +1,26 @@
+{
+    "depression": {
+        "trans": {
+            "nonsuicidal": "1.84",
+            "suicidal": "2.68"
+        },
+        "discriminated": {
+            "nonsuicidal": "2.59",
+            "suicidal": "3.17"
+        },
+        "acceptance": {
+            "low": {
+                "nonsuicidal": "1.00",
+                "suicidal": "1.00"
+            },
+            "high": {
+                "nonsuicidal": "0.45",
+                "suicidal": "1.20"
+            }
+        }
+    },
+    "discrimination": {
+        "trans": "2.09",
+        "smoking": "1.73"
+    }
+}

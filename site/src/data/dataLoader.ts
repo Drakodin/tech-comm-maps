@@ -1,6 +1,12 @@
 import * as data from './lgbt_hist.json';
+// 2015
+import * as sexualityData from './lgbo_mental_health.json';
+// 2016
+import * as transData from './trans_mental_health.json';
 
 export const STATE_DATA: any = data;
+export const TRANS_DATA: any = transData;
+export const SEXUALITY_DATA: any = sexualityData
 
 // Array of years
 export const DATA_YEARS = ["2013", "2015", "2018"];
@@ -26,6 +32,8 @@ STATE_DATA['years'].forEach((v: any) => {
         }
     }
 });
+
+console.log(process.env.PUBLIC_URL)
 
 /**
  * Generates an RGB tuple from one color to another with an input based on
