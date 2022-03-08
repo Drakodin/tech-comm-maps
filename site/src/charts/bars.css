@@ -1,0 +1,63 @@
+.bar {
+    border: none;
+    height: 100%;
+    max-height: 1em;
+}
+
+.bars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bar-spacer {
+    width: 7.5%;
+}
+
+.bar-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-0 {
+    background-color: #5e0202;
+}
+
+.bar-1 {
+    background-color: #bb8900;
+}
+
+.bars-root {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.axis {
+    border: solid black 1px;
+    position: absolute;
+    left: 0;
+    top: 5%;
+    width: 100%;
+}
+
+.axis-tick {
+    display: flex;
+    flex-direction: column;
+}
+
+.axis .axis-tick:nth-child(n) {
+    position: absolute;
+    top: 0;
+    height: 20px;
+    font-size: 0.5em;
+}
+.tick {
+    border: solid black 1px;
+    height: 5px;
+    width: 0px;
+}

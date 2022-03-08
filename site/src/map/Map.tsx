@@ -32,7 +32,7 @@ const DashboardMap = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            <ShapeRenderer zipURL={`${window.location.toString()}/US_State_Boundaries.zip`}/>
+            <ShapeRenderer zipURL={`${window.location.toString()}tech-comm-maps/US_State_Boundaries.zip`}/>
         </MapContainer>
     )
 }

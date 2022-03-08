@@ -11,3 +11,24 @@
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
+.bar-charts {
+  position: relative;
+  min-height: 900px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5%;
+  row-gap: 10%;
+}
+
+.source-footer {
+  position: relative;
+  width: 90%;
+  padding-left: 10%;
+}
+
+.sources {
+  list-style-type: none;
+  padding: 0;
+}
